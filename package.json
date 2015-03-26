@@ -1,0 +1,34 @@
+{
+  "name": "create-boom-error",
+  "version": "0.1.0",
+  "description": "Simply create sub-classed Boom errors for Hapi applications.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test test/index.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lob/create-boom-error.git"
+  },
+  "keywords": [
+    "hapi",
+    "boom",
+    "error"
+  ],
+  "author": "Marcus Gartner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lob/create-boom-error/issues"
+  },
+  "homepage": "https://github.com/lob/create-boom-error",
+  "devDependencies": {
+    "chai": "^2.1.2",
+    "mocha": "^2.2.1"
+  },
+  "dependencies": {
+    "boom": "^2.6.1"
+  }
+}
