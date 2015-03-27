@@ -2,7 +2,8 @@
 
 var Boom = require('boom');
 
-function createBoomError(name, statusCode, message, scope) {
+function createBoomError(name, statusCode, message) {
+  var exports = this;
 
   function ErrorCtor () {
     this.name = name;
@@ -20,8 +21,8 @@ function createBoomError(name, statusCode, message, scope) {
   ErrorCtor.prototype.constructor = ErrorCtor;
   ErrorCtor.prototype.name = name;
 
-  if (scope) {
-    scope[name] = ErrorCtor;
+  if (exports) {
+    exports[name] = ErrorCtor;
   }
 
   return ErrorCtor;
