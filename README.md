@@ -1,4 +1,6 @@
 # create-boom-error
+[![npm version](https://badge.fury.io/js/create-boom-error.svg)](http://badge.fury.io/js/create-boom-error)
+[![Build Status](https://travis-ci.org/lob/create-boom-error.svg)](https://travis-ci.org/lob/create-boom-error)
 A simple Node.js library for easily creating classed Boom errors in Hapi applications.
 
 # Installation
