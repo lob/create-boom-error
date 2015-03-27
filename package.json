@@ -1,6 +1,6 @@
 {
   "name": "create-boom-error",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Simply create sub-classed Boom errors for Hapi applications.",
   "main": "index.js",
   "directories": {
