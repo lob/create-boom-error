@@ -62,8 +62,3 @@ This is a useful shortcut if you have a file in your application where you want 
 
  err instanceof CustomErrors.TestError // => true
  ```
-
-# TODO
-
-- [ ] Add to Travis
-- [ ] Push to NPM
