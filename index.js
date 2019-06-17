@@ -2,7 +2,7 @@
 
 var Boom = require('boom');
 
-function createBoomError(name, statusCode, message) {
+function createBoomError(name, statusCode, message, decorate) {
   var exports = this;
 
   function ErrorCtor () {
@@ -12,6 +12,9 @@ function createBoomError(name, statusCode, message) {
       this.message = message;
     } else if (typeof message === 'function') {
       this.message = message.apply(undefined, arguments);
+    }
+    if(decorate){
+      this.decorate = decorate
     }
 
     Boom.wrap(this, statusCode);

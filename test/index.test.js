@@ -7,7 +7,7 @@ var CustomErrors = require('./customErrors');
 describe('createBoomError', function () {
 
   it('should create a boom error with a string message', function () {
-    var StringError = createBoomError('StringError', 404, 'string message');
+    var StringError = createBoomError('StringError', 404, 'string message', {issue: "invalid"});
     var err = new StringError();
     expect(err instanceof StringError).to.be.true;
     expect(err instanceof Error).to.be.true;
