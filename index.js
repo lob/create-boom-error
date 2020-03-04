@@ -24,7 +24,7 @@ function createBoomError(name, statusCode, message) {
 
     Boom.boomify(this, { statusCode, });
 
-    if (message == undefined) {
+    if (message === undefined) {
       Reflect.deleteProperty(this.output.payload, 'message');
     }
   }
