@@ -4,7 +4,7 @@ A simple Node.js library for easily creating classed Boom errors in Hapi applica
 
 # Installation
 
-`npm install create-boom-error`
+`yarn add create-boom-error`
 
 # Usage
 
@@ -62,3 +62,9 @@ This is a useful shortcut if you have a file in your application where you want 
 
  err instanceof CustomErrors.TestError // => true
  ```
+
+# Development
+
+## Run tests
+
+`yarn test`
