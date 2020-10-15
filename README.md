@@ -8,19 +8,20 @@ A simple Node.js library for easily creating classed Boom errors in Hapi applica
 
 # Usage
 
-### `createBoomError(name, statusCode, [message])`
+### `createBoomError(name, statusCode, [message], [code])`
 
 Creates a Boom error.
 - `name` - The name of the error.
 - `statusCode` - the integer status code of the Boom error
 - `message` - an optional string or function which returns a string
+- `code` - an optional machine-keyable error status string
 
 ### Create a simple error
 
 ```js
 var createBoomError = require('create-boom-error');
 
-var MyError = createBoomError('MyError', 404, 'simple message');
+var MyError = createBoomError('MyError', 404, 'simple message', 'not_found');
 
 var err = new MyError();
 
