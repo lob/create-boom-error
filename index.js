@@ -7,27 +7,31 @@ const Boom = require('@hapi/boom');
  * @param {string} name
  * @param {number} statusCode
  * @param {function | string} message
+ * @param {string} code
  * @returns {new () => Boom<null>}
  */
-function createBoomError(name, statusCode, message) {
+function createBoomError(name, statusCode, message, code) {
   var exports = this;
 
   function ErrorCtor () {
     this.name = name;
+    if (code) {
+      this.code = code;
+    }
 
     this.message = undefined;
     if (typeof message === 'string') {
       this.message = message;
     } else if (typeof message === 'function') {
-      this.message = message.apply(undefined, arguments);
+      this.message = message.apply(null, arguments);
     }
 
-    Boom.boomify(this, { statusCode, });
+    Boom.boomify(this, { statusCode });
 
-    if (message === undefined) {
+    if (!message) {
       Reflect.deleteProperty(this.output.payload, 'message');
     }
-  }
+  };
 
   ErrorCtor.prototype = Object.create(Error.prototype);
   ErrorCtor.prototype.constructor = ErrorCtor;
