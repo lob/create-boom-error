@@ -12,6 +12,7 @@ describe('createBoomError', function () {
     expect(err instanceof StringError).to.be.true;
     expect(err instanceof Error).to.be.true;
     expect(err.message).to.eql('string message');
+    expect(err.code).to.not.exist;
     expect(err.output).to.eql({
       statusCode: 404,
       payload: {
@@ -31,6 +32,7 @@ describe('createBoomError', function () {
     expect(err instanceof FunctionError).to.be.true;
     expect(err instanceof Error).to.be.true;
     expect(err.message).to.eql('value is one');
+    expect(err.code).to.not.exist;
     expect(err.output).to.eql({
       statusCode: 422,
       payload: {
@@ -47,6 +49,24 @@ describe('createBoomError', function () {
     var err = new EmptyError();
     expect(err instanceof EmptyError).to.be.true;
     expect(err instanceof Error).to.be.true;
+    expect(err.code).to.not.exist;
+    expect(err.output).to.eql({
+      statusCode: 422,
+      payload: {
+        statusCode: 422,
+        error: 'Unprocessable Entity'
+      },
+      headers: {}
+    });
+  });
+
+  it('should create a boom error with an optional error code', () => {
+    const code = 'invalid';
+    const CodeError = createBoomError('CodeError', 422, null, code);
+    const err = new CodeError();
+    expect(err instanceof CodeError).to.be.true;
+    expect(err instanceof Error).to.be.true;
+    expect(err.code).to.eql(code);
     expect(err.output).to.eql({
       statusCode: 422,
       payload: {
