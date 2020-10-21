@@ -1,3 +1,11 @@
+## 1.0.0 (2020-10-21)
+
+##### New Features
+
+* **code:**
+  *  default code to snake case of name ([1d0e4c75](https://github.com/lob/create-boom-error/commit/1d0e4c75f3ce158da6c3e2128efe51d9f4ca8326))
+  *  default code to snake case of name ([075cb25a](https://github.com/lob/create-boom-error/commit/075cb25afb2ec4fc631bb592a9e2d83ddb49e36a))
+
 ### 0.3.0 (2020-10-16)
 
 ##### New Features
