@@ -12,7 +12,7 @@ describe('createBoomError', function () {
     expect(err instanceof StringError).to.be.true;
     expect(err instanceof Error).to.be.true;
     expect(err.message).to.eql('string message');
-    expect(err.code).to.not.exist;
+    expect(err.code).to.eql('string_error');
     expect(err.output).to.eql({
       statusCode: 404,
       payload: {
@@ -32,7 +32,7 @@ describe('createBoomError', function () {
     expect(err instanceof FunctionError).to.be.true;
     expect(err instanceof Error).to.be.true;
     expect(err.message).to.eql('value is one');
-    expect(err.code).to.not.exist;
+    expect(err.code).to.eql('function_error');
     expect(err.output).to.eql({
       statusCode: 422,
       payload: {
@@ -49,7 +49,7 @@ describe('createBoomError', function () {
     var err = new EmptyError();
     expect(err instanceof EmptyError).to.be.true;
     expect(err instanceof Error).to.be.true;
-    expect(err.code).to.not.exist;
+    expect(err.code).to.eql('empty_error');
     expect(err.output).to.eql({
       statusCode: 422,
       payload: {
