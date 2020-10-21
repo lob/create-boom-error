@@ -1,6 +1,7 @@
 'use strict';
 
-const Boom = require('@hapi/boom');
+const Boom       = require('@hapi/boom');
+const Decamelize = require('decamelize');
 
 /**
  *
@@ -17,6 +18,8 @@ function createBoomError(name, statusCode, message, code) {
     this.name = name;
     if (code) {
       this.code = code;
+    } else {
+      this.code = Decamelize(name);
     }
 
     this.message = undefined;

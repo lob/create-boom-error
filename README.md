@@ -27,7 +27,25 @@ var err = new MyError();
 
 // err is an instance of MyError making it easy to check in tests
 err instanceof MyError // => true
+
+// err.code will match the code argument passed in
+err.code // => 'not_found'
 ```
+
+Note that if the optional `code` argument is *NOT* passed in then the `.code` field attached to the error will default to a decamelized, snake case version of the `name`. For example:
+
+```js
+const MyError = createBoomError('MyError', 404, 'simple message');
+
+const err = new MyError();
+
+// err is an instance of MyError making it easy to check in tests
+err instanceof MyError // => true
+
+// err.code will return the name argument decamelized and in snake case
+err.code // => 'my_error'
+```
+
 
 ### Create an error with a dynamic message
 
